@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMPLE CALCULATOR</title>
+</head>
+<body>
+<fieldset>
+    <legend style="text-align: center">SIMPLE CALCULATOR</legend>
+    <table>
+        <tr>
+            <td>1st variable</td>
+            <td>2nd variable</td>
+        </tr>
+        <tr>
+            <td><input type="number" id="first" placeholder="1st variable"></td>
+            <td><input type="number" id="second" placeholder="2nd variable"></td>
+        </tr>
+    </table>
+    <table>
+        <tr class="math">
+            <td>
+                <button type="button" value="+" onclick="showMath(this.value)">Addition</button>
+            </td>
+            <td>
+                <button type="button" value="-" onclick="showMath(this.value)">Subtraction</button>
+            </td>
+            <td>
+                <button type="button" value="*" onclick="showMath(this.value)">Multiplication</button>
+            </td>
+            <td>
+                <button type="button" value="/" onclick="showMath(this.value)">Division</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="divAddition"></div>
+            </td>
+            <td>
+                <div id="divSubtraction"></div>
+            </td>
+            <td>
+                <div id="divMultiplication"></div>
+            </td>
+            <td>
+                <div id="divDivision"></div>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<script>
+
+
+    function showMath(op) {
+        let a = document.getElementById("first");
+        a = parseFloat(a.value);
+        let b = document.getElementById("second");
+        b = parseFloat(b.value);
+        if (op === '+')
+            document.getElementById('divAddition').innerHTML='result: '+(a+b);
+        else if (op==='-')
+            document.getElementById('divSubtraction').innerHTML='result: '+(a-b);
+        else if (op==='*')
+            document.getElementById('divMultiplication').innerHTML='result: '+(a*b);
+        else
+            document.getElementById('divDivision').innerHTML='result: '+(a/b);
+    }
+</script>
+</body>
+</html>

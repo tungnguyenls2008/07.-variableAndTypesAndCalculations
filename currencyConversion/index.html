@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CURRENCY CONVERSION</title>
+    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+</head>
+<style>
+    td {
+        border: 1px solid black;
+    }
+    body{
+        font-family: 'Spartan', serif;
+        font-size: 25px;
+    }
+</style>
+<body>
+<fieldset>
+    <legend>CURRENCY CONVERSION</legend>
+    <form>
+        <table>
+            <tr>
+                <td>Amount</td>
+                <td>From Currency</td>
+                <td>To Currency</td>
+                <td rowspan="2">
+                    <button type="button" onclick="showMessageDiv()">CONVERT NOW</button>
+                </td>
+                <td>
+                    <div id="messageDiv"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="number" id="sourceCurrency" placeholder="amount of currency"></td>
+                <td><select id="source">
+                    <option value="23000" id="sourceVND">Vietnam Dong</option>
+                    <option value="7" id="sourceCNY">China Yuan</option>
+                    <option value="1" id="sourceUSD">US Dollar</option>
+                </select></td>
+                <td><select id="target">
+                    <option value="23000" id="VND">Vietnam Dong</option>
+                    <option value="7" id="CNY">China Yuan</option>
+                    <option value="1" id="USD">US Dollar</option>
+                </select></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+<script>
+    let c = 0;
+
+    function convertCurrency() {
+        let a = document.getElementById('sourceCurrency');
+        a = parseFloat(a.value);
+        let s = document.getElementById("source").value;
+        s = parseFloat(s);
+        let t = document.getElementById("target").value;
+        t = parseFloat(t);
+        c = a * t / s;
+    }
+
+    function showMessageDiv() {
+        convertCurrency();
+        document.getElementById("messageDiv").innerHTML = c;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOMEWORK</title>
+    <link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        font-family: 'Spartan', serif;
+        font-size: 25px;
+    }
+
+</style>
+<body>
+<fieldset><legend>HOMEWORK</legend>
+    <!--Exercise 1-->
+    <fieldset><legend>Exercise 1:</legend>
+
+        <form>
+            <input type="number" id="physic" placeholder="Physic">
+            <input type="number" id="chemistry" placeholder="Chemistry">
+            <input type="number" id="biology" placeholder="Biology">
+            <input type="reset" value="Reset"><br>
+        </form>
+        <table>
+            <tr>
+                <td><button type="button" onclick="showMessageDiv()">Get Average</button>
+                    <div id="messageDiv"></div></td>
+                <td><button type="button" onclick="showMessageDiv2()">Get Summary</button>
+                    <div id="messageDiv2"></div></td>
+            </tr>
+        </table>
+        <script>
+            let physic=document.getElementById("physic");
+            let chemistry=document.getElementById("chemistry");
+            let biology=document.getElementById("biology");
+            let average =0;
+            let summary=0;
+            function getAverage() {
+                let p = parseFloat(physic.value);
+                let c = parseFloat(chemistry.value);
+                let b = parseFloat(biology.value);
+                if (0<=p && p<=10 && 0<=c && c<=10 && 0<=b && b<=10){
+                    average=(p+c+b)/3;
+
+                }else {
+                    alert("invalid value");
+                }
+
+
+            }
+            function getSummary() {
+                let p2 = parseFloat(physic.value);
+                let c2 = parseFloat(chemistry.value);
+                let b2 = parseFloat(biology.value);
+                if (0<=p2 && p2<=10 && 0<=c2 && c2<=10 && 0<=b2 && b2<=10){
+                    summary=p2+c2+b2;
+                }else {
+                    alert("invalid value");
+                }
+            }
+            function showMessageDiv(){
+                getAverage();
+                document.getElementById('messageDiv').innerHTML = 'Average Mark:' + average;
+            }
+            function showMessageDiv2(){
+                getSummary();
+                document.getElementById('messageDiv2').innerHTML = 'Mark Summary:' + summary;
+            }
+        </script>
+    </fieldset>
+    <!--Exercise 2-->
+    <fieldset><legend>Exercise 2:</legend>
+        <input type="number" id="celsius" placeholder="Celsius">
+        <button type="button" onclick="showMessageDiv3()">Convert to Fahrenheit</button><br>
+        <div id="messageDiv3"></div>
+        <script>
+            let fah = 0;
+            function convertToFah() {
+                let cel = document.getElementById("celsius");
+                let celf = parseFloat(cel.value);
+
+                if (cel != null) {
+                    fah = (((9 * celf) / 5) + 32);
+                }else{
+                    alert('Give me something');
+                }
+            }
+            function showMessageDiv3() {
+                convertToFah();
+                document.getElementById("messageDiv3").innerHTML='Fahrenheit Conversion Result: '+ fah + 'F&#186;';
+            }
+
+        </script>
+    </fieldset>
+    <fieldset>
+        <legend>Exercise 3 & 4</legend>
+        <input type="number" id="radius" placeholder="Circle's Radius">
+        <button type="button" onclick="showMessageDiv4()">Show Circle's Surface</button><br>
+        <div id="messageDiv4"></div><br>
+        <input type="number" id="diameter" placeholder="Circle's Diameter">
+        <button type="button" onclick="showMessageDiv5()">Show Cirle's Perimeter</button>
+        <div id="messageDiv5"></div><br>
+        <script>
+            let S=0;
+            let A=0;
+            function findCircleS() {
+                const pi=3.14;
+                let r=document.getElementById("radius");
+                let rf=parseFloat(r.value);
+
+                if(rf!=null){
+                    S=rf*rf*pi;
+                }else{
+                    alert('Give me something!')
+                }}
+            function showMessageDiv4() {
+                findCircleS();
+                document.getElementById("messageDiv4").innerHTML="Circles's Surface is: "+S+'cm&sup2;';
+            }
+            function findCircleA() {
+                const pi=3.14;
+                let d=document.getElementById("diameter");
+                let df=parseFloat(d.value);
+                if(df!=null){
+                    A=((df*df/4)*pi);
+                }else{
+                    alert('Give me something!')
+                }
+            }
+            function showMessageDiv5() {
+                findCircleA();
+                document.getElementById("messageDiv5").innerHTML="Circles's Perimeter is: "+A+'cm';
+            }
+        </script>
+    </fieldset>
+</fieldset>
+</body>
+</html>
